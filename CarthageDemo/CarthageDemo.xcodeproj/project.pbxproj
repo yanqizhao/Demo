@@ -14,6 +14,7 @@
 		EC49D46B1F284C55000E49C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC49D46A1F284C55000E49C1 /* Assets.xcassets */; };
 		EC49D46E1F284C55000E49C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC49D46C1F284C55000E49C1 /* LaunchScreen.storyboard */; };
 		EC49D4791F284C55000E49C1 /* CarthageDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC49D4781F284C55000E49C1 /* CarthageDemoTests.m */; };
+		EC49D4B71F2852E7000E49C1 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC49D4B61F2852E7000E49C1 /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		EC49D4741F284C55000E49C1 /* CarthageDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarthageDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC49D4781F284C55000E49C1 /* CarthageDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarthageDemoTests.m; sourceTree = "<group>"; };
 		EC49D47A1F284C55000E49C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC49D4B61F2852E7000E49C1 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC49D4B71F2852E7000E49C1 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +69,7 @@
 				EC49D45D1F284C55000E49C1 /* CarthageDemo */,
 				EC49D4771F284C55000E49C1 /* CarthageDemoTests */,
 				EC49D45C1F284C55000E49C1 /* Products */,
+				EC49D4B51F2852E7000E49C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +115,14 @@
 			path = CarthageDemoTests;
 			sourceTree = "<group>";
 		};
+		EC49D4B51F2852E7000E49C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC49D4B61F2852E7000E49C1 /* SDWebImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +133,7 @@
 				EC49D4571F284C55000E49C1 /* Sources */,
 				EC49D4581F284C55000E49C1 /* Frameworks */,
 				EC49D4591F284C55000E49C1 /* Resources */,
+				EC49D4D51F286CE7000E49C1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,6 +220,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EC49D4D51F286CE7000E49C1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC49D4571F284C55000E49C1 /* Sources */ = {
@@ -353,6 +383,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanqizhao.CarthageDemo;
@@ -364,6 +398,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CarthageDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanqizhao.CarthageDemo;
@@ -414,6 +452,7 @@
 				EC49D47F1F284C55000E49C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC49D4801F284C55000E49C1 /* Build configuration list for PBXNativeTarget "CarthageDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +461,7 @@
 				EC49D4821F284C55000E49C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
